@@ -1,10 +1,15 @@
+from dotenv import load_dotenv
+import os
+
+# 加载 .env 文件
+load_dotenv()
+
 import os
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import DashScopeEmbeddings
 from openai import OpenAI
 
-# ⚠️ 关键修复：重新填入正确的 API Key（请确认你的 key 没有过期）
-os.environ["DASHSCOPE_API_KEY"] = "sk-ws-H.PIPRXDX.IvFD.MEQCIBvGqwoCCD9tQ5E3wjFJ60UZMYf7f7QFiqPYcUSXoKlcAiANRSPgPJqYti_uv5kwT9QVsYmCqn8hcGnrYnYkTrQ-Ag"
+
 
 # 初始化 Embedding 模型和向量数据库
 embeddings = DashScopeEmbeddings(model="text-embedding-v3") # 建议使用v3，效果更好
